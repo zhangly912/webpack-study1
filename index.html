@@ -2,9 +2,33 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>webpack 脚本配置</title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- 我是注释 -->
  </head>
  <body>
  	<div>我是新改变的</div>
+ 	<div><%= htmlWebpackPlugin.options.mm %></div>
+
+ <div style="height: 20px;"></div>
+ 	<% for ( var key in htmlWebpackPlugin ){ %>
+ 			<%= key %>
+ 	 <% }	%>
+ 	 <div style="height: 20px;"></div>
+
+ 	 	<% for ( var key in htmlWebpackPlugin.files ){ %>
+ 			<div><%= key %>:<%= JSON.stringify(htmlWebpackPlugin.files[key]) %></div>
+ 	 <% }	%>
+
+ <div style="height: 20px;"></div>
+ 	 	<% for ( var key in htmlWebpackPlugin.options ){ %>
+ 			<div><%= key %>:<%= JSON.stringify(htmlWebpackPlugin.options[key]) %></div>
+ 	 <% }	%>
+ 	  <div style="height: 20px;"></div>
+ 
+
+
+ <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
  </body>
  </html>

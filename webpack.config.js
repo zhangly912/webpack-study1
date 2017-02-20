@@ -16,7 +16,8 @@ module.exports = {
 
 	output: {
 		path: './dist',//放置的目录
-		filename: 'js/[name]-[chunkhash].js' // 输出的文件名
+		filename: 'js/[name]-[chunkhash].js', // 输出的文件名
+		publicPath:'http://cdn.com'
 	},
 
 	//plugin的使用 在这里进行使用的插件的初始化 可以给插件传参数
@@ -24,7 +25,13 @@ module.exports = {
 		new htmlWebpackPlugin({
 			// filename:'index-[hash].html',。//html文件命名
 			template:'index.html', //根目录
-			inject:'body'//文件放置的位置  head/body里面
+			inject:false,//文件放置的位置  head/body里面  false不放置打包后的文件 可以通过自己遍历放入到指定位置，因为css需要放头部，js需要放body里面
+			title:'webpack plugin title',
+			mm:'我是张林玉',
+			minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
+				removeComments: true,
+				collapseWhitespace: true,
+			}
 		})
 	]
 }
