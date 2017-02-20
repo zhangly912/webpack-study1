@@ -4,7 +4,9 @@
   "description": "webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    //配置启动项命令  npm start ===npm run start
+    "start": "webpack --config webpack.config.js --progress --display-modules --colors --display-reasons --watch"
   },
   "author": "",
   "license": "ISC",

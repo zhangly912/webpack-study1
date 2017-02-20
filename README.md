@@ -13,3 +13,6 @@ require('./style.css');
 //--progress 看到打包过程的参数
 //-display-modules 查看打包的模块，通过什么loader来处理也会写出了
 //-display-reasons 为什么要打包告诉你
+//--config  webpack --config webpack.dev.config.js 修改配置文件名称之后的允许方式
+
+
