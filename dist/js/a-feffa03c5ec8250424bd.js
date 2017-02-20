@@ -70,10 +70,12 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-function helloworld(){
-	console.log(223);
+function a (){
+	console.log("aa");
 }
-helloworld()
+a();
+
+
 
 /***/ })
 /******/ ]);

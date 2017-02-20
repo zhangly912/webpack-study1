@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    //配置启动项命令  npm start ===npm run start
     "start": "webpack --config webpack.config.js --progress --display-modules --colors --display-reasons --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.26.1",
+    "html-webpack-plugin": "^2.28.0",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1"
   }
