@@ -11,7 +11,9 @@ module.exports = {
 	//name  hash chunkhash   name是entry中的key,hash是执行打包命令时的值，chunkhash是入口每个模块所属的hash.
 	entry: {
 		main: './src/script/main.js',
-		a: './src/script/a.js'
+		a: './src/script/a.js',
+		b: './src/script/b.js',
+		c: './src/script/c.js',
 	},
 
 	output: {
@@ -23,15 +25,48 @@ module.exports = {
 	//plugin的使用 在这里进行使用的插件的初始化 可以给插件传参数
 	plugins: [
 		new htmlWebpackPlugin({
-			// filename:'index-[hash].html',。//html文件命名
+			filename:'index.html',//html文件命名
 			template:'index.html', //根目录
 			inject:false,//文件放置的位置  head/body里面  false不放置打包后的文件 可以通过自己遍历放入到指定位置，因为css需要放头部，js需要放body里面
-			title:'webpack plugin title',
-			mm:'我是张林玉',
-			minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
-				removeComments: true,
-				collapseWhitespace: true,
-			}
+			title:'This is index.html',
+			excludeChunks:['b','c','a']
+			// minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
+			// 	removeComments: true,
+			// 	collapseWhitespace: true,
+			// }
+		}),
+		new htmlWebpackPlugin({
+			filename:'a.html',//html文件命名
+			template:'index.html', //根目录
+			inject:false,//文件放置的位置  head/body里面  false不放置打包后的文件 可以通过自己遍历放入到指定位置，因为css需要放头部，js需要放body里面
+			title:'This is a.html',
+			excludeChunks:['b','c']
+			// minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
+			// 	removeComments: true,
+			// 	collapseWhitespace: true,
+			// }
+		}),
+			new htmlWebpackPlugin({
+			filename:'b.html',//html文件命名
+			template:'index.html', //根目录
+			inject:false,//文件放置的位置  head/body里面  false不放置打包后的文件 可以通过自己遍历放入到指定位置，因为css需要放头部，js需要放body里面
+			title:'This is b.html',
+			excludeChunks:['a','c']
+			// minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
+			// 	removeComments: true,
+			// 	collapseWhitespace: true,
+			// }
+		}),
+			new htmlWebpackPlugin({
+			filename:'c.html',//html文件命名
+			template:'index.html', //根目录
+			inject:false,//文件放置的位置  head/body里面  false不放置打包后的文件 可以通过自己遍历放入到指定位置，因为css需要放头部，js需要放body里面
+			title:'This is b.html',
+			excludeChunks:['a','b']
+			// minify: {//压缩生成的html 具体看官网插件 删除注释，空格https://www.npmjs.com/package/html-webpack-plugin
+			// 	removeComments: true,
+			// 	collapseWhitespace: true,
+			// }
 		})
 	]
 }

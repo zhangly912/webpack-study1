@@ -21,8 +21,11 @@
 1.2数组是为了解决两个平行的不互相依赖的文件打包在一起，输出文件命名与上面一致。
 对象：分成不同的chunk，输出文件命名不能写死，否则会相互覆盖，具体看配置文件。
 
-那么如何在html中引入动态生成的文件呢？需要使用webpack的插件 【html-webpack-plugin]
-
+2.那么如何在html中引入动态生成的文件呢？需要使用webpack的插件 【html-webpack-plugin]
+3.实现多页面应用。
+4.静态资源直接append到页面之中的实现 compilation.assets[资源路径].source();
+5.html-webpack-plugin :https://www.npmjs.com/package/html-webpack-plugin 
+chunks,excludeChunks的使用。
 
 1.npm install
 安装依赖

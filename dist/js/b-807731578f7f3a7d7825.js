@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>This is index.htmlwebpack多页面应用</title>
-  <!-- 我是注释 -->
-<!-- 将main看做静态资源，直接append到页面中来 静态资源无需将publicPath加入进来
-现在通过webpack源码的方法compilation.assets[].source(); 将内容append进来
-
- -->
-  <script type="text/javascript">
-  	/******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -74,34 +63,20 @@
 /******/ 	__webpack_require__.p = "http://cdn.com";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 3:
+/******/ ([
+/* 0 */,
+/* 1 */
 /***/ (function(module, exports) {
 
-function helloworld(){
-	console.log(223);
+function a (){
+	console.log("bb");
 }
-helloworld();
+a();
+
+
 
 /***/ })
-
-/******/ });
-  </script>
- </head>
- <body>
- 	<div>我是新改变的</div>
- 	<div>This is index.html</div>
-
-
- 
- 
-
-
-<!-- 这个地方将所有的js循环渲染，在webpack里面指定不渲染进来的webpack chunks
- --> 
- </body>
- </html>
+/******/ ]);
