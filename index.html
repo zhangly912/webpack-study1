@@ -3,27 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title><%= htmlWebpackPlugin.options.title %>webpack多页面应用</title>
-  <!-- 我是注释 -->
-<!-- 将main看做静态资源，直接append到页面中来 静态资源无需将publicPath加入进来
-现在通过webpack源码的方法compilation.assets[].source(); 将内容append进来
-
- -->
-  <script type="text/javascript">
-  	<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
-  </script>
- </head>
- <body>
- 	<div>我是新改变的</div>
- 	<div><%= htmlWebpackPlugin.options.title %></div>
-
-
- <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
- <% if (chunk!= 'main') { %> 
- <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
- <% } %>
-
-<% } %>
-<!-- 这个地方将所有的js循环渲染，在webpack里面指定不渲染进来的webpack chunks
- --> 
+ 
  </body>
  </html>
